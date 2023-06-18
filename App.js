@@ -13,10 +13,16 @@ import {
   Dimensions,
 } from "react-native";
 
-import { useDimensions } from "@react-native-community/hooks";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 export default function App() {
   console.log(Dimensions.get("screen"));
+  console.log(useDimensions);
+  console.log(useDeviceOrientation());
+  const { landscpace } = useDeviceOrientation();
   let x = 1;
   console.log("App Executed.");
   const handlePress = () => console.log("Text Pressed");
@@ -47,11 +53,57 @@ export default function App() {
       ></Button>
       <View
         style={{
-          backgroundColor: "dodgerblue",
-          width: "100%",
-          height: "30%",
+          backgroundColor: "#fff",
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          flexWrap: "wrap",
+          alignContent: "center",
         }}
-      ></View>
+      >
+        <View
+          style={{
+            backgroundColor: "dodgerblue",
+            width: 100,
+            height: 100,
+            alignSelf: "flex-start",
+            flexBasis: 100,
+            flex: 1,
+            flexShrink: 1,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "gold",
+            width: 100,
+            height: 100,
+            //right: 20,
+            position: "relative",
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "tomato",
+            width: 100,
+            height: 100,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "grey",
+            width: 100,
+            height: 100,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: "greenyellow",
+            width: 100,
+            height: 100,
+          }}
+        />
+      </View>
     </SafeAreaView>
   );
 }

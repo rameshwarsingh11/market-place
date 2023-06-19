@@ -7,9 +7,6 @@ function WelcomeScreen(props) {
       style={styles.background}
       source={require("../assets/icon.png")}
     >
-      {/*
-      <Image styles={styles.logo} source={require("../assets/icon.png")} />
-  */}
       <View style={styles.logoContainer}>
         <Text>Market Place options</Text>
       </View>

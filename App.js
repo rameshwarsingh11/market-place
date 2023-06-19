@@ -21,18 +21,12 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
-  /*console.log(Dimensions.get("screen"));
-  console.log(useDimensions);
-  console.log(useDeviceOrientation());*/
   const { landscpace } = useDeviceOrientation();
-  let x = 1;
-  //console.log("App Executed.");
   const handlePress = () => console.log("Text Pressed");
   return (
     <SafeAreaView style={styles.container}>
       <Text numberoflines={1} onPress={handlePress}>
-        Open up App.js to start working on your app2! Very Big Text.Very Big
-        TextVery Big Text
+        Welcome to the Market Place!
       </Text>
       <TouchableOpacity onPress={() => console.log("Image Pressed.")}>
         <Image

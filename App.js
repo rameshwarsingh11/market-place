@@ -21,12 +21,12 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
-  console.log(Dimensions.get("screen"));
+  /*console.log(Dimensions.get("screen"));
   console.log(useDimensions);
-  console.log(useDeviceOrientation());
+  console.log(useDeviceOrientation());*/
   const { landscpace } = useDeviceOrientation();
   let x = 1;
-  console.log("App Executed.");
+  //console.log("App Executed.");
   const handlePress = () => console.log("Text Pressed");
   return (
     <SafeAreaView style={styles.container}>
@@ -80,7 +80,7 @@ export default function App() {
             backgroundColor: "gold",
             width: 100,
             height: 100,
-            //right: 20,
+
             position: "relative",
           }}
         />

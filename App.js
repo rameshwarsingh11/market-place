@@ -19,11 +19,15 @@ import {
 } from "@react-native-community/hooks";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import AppText from "./app/components/AppText";
+
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function App() {
-  const { landscpace } = useDeviceOrientation();
-  const handlePress = () => console.log("Text Pressed");
+  /*const { landscpace } = useDeviceOrientation();
+  const handlePress = () => console.log("Text Pressed");*/
   return (
+    /*
     <SafeAreaView style={styles.container}>
       <Text numberoflines={1} onPress={handlePress}>
         Welcome to the Market Place!
@@ -102,7 +106,17 @@ export default function App() {
       </View>
       <WelcomeScreen />
       <ViewImageScreen />
-    </SafeAreaView>
+    </SafeAreaView> */
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <AppText>Marketplace Home.</AppText>
+      <MaterialCommunityIcons name="email" size={200} color="dodgerblue" />
+    </View>
   );
 }
 const containerStyle = { backgroundColor: "orange" };

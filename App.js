@@ -22,6 +22,7 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AppText from "./app/components/AppText";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AppButton from "./app/components/AppButton";
 
 export default function App() {
   /*const { landscpace } = useDeviceOrientation();
@@ -114,8 +115,12 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <AppText>Marketplace Home.</AppText>
+      <AppText children="M">Marketplace Home.</AppText>
       <MaterialCommunityIcons name="email" size={200} color="dodgerblue" />
+      <AppButton
+        title="Login"
+        onPress={() => console.log("Login button pressed")}
+      />
     </View>
   );
 }

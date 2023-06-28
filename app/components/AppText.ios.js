@@ -7,7 +7,7 @@ function AppText({ children }) {
 const styles = StyleSheet.create({
   text: {
     color: "dodgerblue",
-    fontSize: 40,
+    fontSize: 20,
     fontFamily: "Avenir",
   },
 });

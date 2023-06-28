@@ -11,11 +11,13 @@ function ListingDetails(props) {
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>Rubik cube for sale</AppText>
         <AppText style={styles.price}>$130</AppText>
-        <ListItem
-          image={require("../assets/poster.png")}
-          title="Known Company"
-          subTitle="10 Items posted"
-        />
+        <View style={styles.userContainer}>
+          <ListItem
+            image={require("../assets/poster.png")}
+            title="Known Company"
+            subTitle="10 Items posted"
+          />
+        </View>
       </View>
     </View>
   );
@@ -37,6 +39,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     marginVertical: 10,
+  },
+  userContainer: {
+    marginVertical: 50,
   },
 });
 export default ListingDetails;

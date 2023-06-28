@@ -7,7 +7,7 @@ function AppText({ children }) {
 const styles = StyleSheet.create({
   text: {
     color: "green",
-    fontSize: 40,
+    fontSize: 20,
     fontFamily: "Roboto",
   },
 });

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "market-palce",
-    "slug": "market-palce",
+    "name": "market-place",
+    "slug": "market-place",
     "privacy": "public",
     "description": "A Market place to allow B2C operations.",
     "version": "1.0.0",

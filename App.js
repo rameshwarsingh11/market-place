@@ -7,9 +7,13 @@ import ListingDetails from "./app/screens/ListingDetails";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import "react-native-gesture-handler";
+import Screen from "./app/components/Screen";
+import Icon from "./app/components/Icon";
+import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screens/AccountScreen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <AccountScreen />;
 }
 const containerStyle = { backgroundColor: "orange" };
 const styles = StyleSheet.create({

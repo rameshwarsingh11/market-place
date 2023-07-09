@@ -21,17 +21,38 @@ import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
   const [firstName, setFirstName] = useState("");
   const [isNew, setIsNew] = useState(false);
+  const categories = [
+    {
+      label: "Sport",
+      value: 1,
+    },
+    {
+      label: "Poster",
+      value: 2,
+    },
+    {
+      label: "Others",
+      value: 3,
+    },
+  ];
+
   return (
     <Screen>
-      <AppTextInput placeholder="Username" icon="email" />
+      <AppTextInput placeholder="Email" icon="email" />
       <Switch
         value={isNew}
         onValueChange={(newValue) => setIsNew(newValue)}
       ></Switch>
+      <AppPicker
+        items={categories}
+        icon="apps"
+        placeholder="Category"
+      ></AppPicker>
     </Screen>
   );
 }

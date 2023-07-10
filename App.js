@@ -22,43 +22,13 @@ import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
   const [firstName, setFirstName] = useState("");
   const [isNew, setIsNew] = useState(false);
 
-  const categories = [
-    {
-      label: "Sport",
-      value: 1,
-    },
-    {
-      label: "Poster",
-      value: 2,
-    },
-    {
-      label: "Others",
-      value: 3,
-    },
-  ];
-  const [category, setCategory] = useState(categories[0]);
-
-  return (
-    <Screen children={undefined} style={undefined}>
-      <AppPicker
-        placeholder="Category"
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-      ></AppPicker>
-      <AppTextInput placeholder="Email" icon="email" />
-      <Switch
-        value={isNew}
-        onValueChange={(newValue) => setIsNew(newValue)}
-      ></Switch>
-    </Screen>
-  );
+  return <LoginScreen />;
 }
 const containerStyle = { backgroundColor: "orange" };
 const styles = StyleSheet.create({

@@ -26,6 +26,7 @@ import AppPicker from "./app/components/AppPicker";
 export default function App() {
   const [firstName, setFirstName] = useState("");
   const [isNew, setIsNew] = useState(false);
+
   const categories = [
     {
       label: "Sport",
@@ -40,19 +41,22 @@ export default function App() {
       value: 3,
     },
   ];
+  const [category, setCategory] = useState(categories[0]);
 
   return (
-    <Screen>
+    <Screen children={undefined} style={undefined}>
+      <AppPicker
+        placeholder="Category"
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        items={categories}
+        icon="apps"
+      ></AppPicker>
       <AppTextInput placeholder="Email" icon="email" />
       <Switch
         value={isNew}
         onValueChange={(newValue) => setIsNew(newValue)}
       ></Switch>
-      <AppPicker
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      ></AppPicker>
     </Screen>
   );
 }

@@ -14,9 +14,11 @@
     "expo-constants": "^14.2.1",
     "expo-status-bar": "~1.4.4",
     "expo-updates": "~0.16.4",
+    "formik": "^2.1.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
-    "react-native-gesture-handler": "~2.9.0"
+    "react-native-gesture-handler": "~2.9.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

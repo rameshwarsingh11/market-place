@@ -49,7 +49,6 @@ function LoginScreen(props) {
             <AppButton title="Login" onPress={handleSubmit}></AppButton>
           </>
         )}
-        )
       </Formik>
     </Screen>
   );

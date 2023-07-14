@@ -1,7 +1,7 @@
 import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
-  text: {
+  /*text: {
     color: "tomato",
     ...Platform.select({
       ios: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         fontFamily: "Roboto",
       },
     }),
-  },
+  },*/
 });
 
 export default styles;

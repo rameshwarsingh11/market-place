@@ -5,10 +5,9 @@ import "react-native-gesture-handler";
 
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import ListingDetails from "./app/screens/ListingDetails";
-import ListingsScreen from "./app/screens/ListingsScreen";
 
 export default function App() {
-  return <ListingDetails />;
+  return <ListingEditScreen />;
 }
 const containerStyle = { backgroundColor: "orange" };
 const styles = StyleSheet.create({

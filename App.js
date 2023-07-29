@@ -3,12 +3,16 @@ import { StyleSheet, Platform, StatusBar } from "react-native";
 
 import "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
-import ListingDetails from "./app/screens/ListingDetails";
 import Screen from "./app/components/Screen";
+import * as Permissions from "expo-permissions";
 
 export default function App() {
   const requestPermission = async () => {
+    const result = await Permissions.askAsync(
+      Permissions.MEDIA_LIBRARY,
+      Permissions.LOCATION_BACKGROUND
+    );
+
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (!granted) {
       alert("Please enable permission to access your media library");

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { StyleSheet, Platform, StatusBar } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Platform, StatusBar, Button, Image } from "react-native";
 
 import "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
@@ -7,11 +7,9 @@ import Screen from "./app/components/Screen";
 import * as Permissions from "expo-permissions";
 
 export default function App() {
+  const [imageUri, setImageUri] = useState();
   const requestPermission = async () => {
-    const result = await Permissions.askAsync(
-      Permissions.MEDIA_LIBRARY,
-      Permissions.LOCATION_BACKGROUND
-    );
+    const result = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
 
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (!granted) {
@@ -22,7 +20,26 @@ export default function App() {
   useEffect(() => {
     requestPermission();
   }, []);
-  return <Screen></Screen>;
+
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync();
+      if (!result.canceled) {
+        setImageUri(result.imageUri);
+      }
+    } catch (error) {
+      console.log("There was an error reading the Image", error);
+    }
+  };
+  return (
+    <Screen>
+      <Button title="Select Image" onPress={selectImage}></Button>
+      <Image
+        source={{ uri: imageUri }}
+        style={{ width: 200, height: 200 }}
+      ></Image>
+    </Screen>
+  );
 }
 const containerStyle = { backgroundColor: "orange" };
 const styles = StyleSheet.create({

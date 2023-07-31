@@ -5,6 +5,7 @@ import "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
 import Screen from "./app/components/Screen";
 import * as Permissions from "expo-permissions";
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
   const [imageUri, setImageUri] = useState();
@@ -38,6 +39,7 @@ export default function App() {
         source={{ uri: imageUri }}
         style={{ width: 200, height: 200 }}
       ></Image>
+      <ImageInput imageUri={imageUri} />
     </Screen>
   );
 }

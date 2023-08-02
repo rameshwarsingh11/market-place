@@ -4,14 +4,12 @@ import { StyleSheet, Platform, StatusBar, Button, Image } from "react-native";
 import "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
 import Screen from "./app/components/Screen";
-import * as Permissions from "expo-permissions";
+import * as Camera from "expo-camera";
 import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
   const [imageUri, setImageUri] = useState();
   const requestPermission = async () => {
-    const result = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
-
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (!granted) {
       alert("Please enable permission to access your media library");
@@ -34,12 +32,10 @@ export default function App() {
   };
   return (
     <Screen>
-      <Button title="Select Image" onPress={selectImage}></Button>
-      <Image
-        source={{ uri: imageUri }}
-        style={{ width: 200, height: 200 }}
-      ></Image>
-      <ImageInput imageUri={imageUri} />
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(uri) => setImageUri(uri)}
+      />
     </Screen>
   );
 }

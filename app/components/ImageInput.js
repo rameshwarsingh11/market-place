@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableWithoutFeedback } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
-function ImageInput({ imageUri, onChangeImage }) {
+function ImageInput({ key, imageUri, onChangeImage }) {
   useEffect(() => {
     requestPermission();
   });

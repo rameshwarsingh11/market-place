@@ -13,13 +13,30 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ],
+        "NSLocationWhenInUseUsageDescription": "text",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "text",
+        "NSLocationAlwaysUsageDescription": "text"
+      },
+      "bundleIdentifier": "com.rsingh11.marketplace"
     },
     "android": {},
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "186f8e46-a475-4bd4-aafe-1685c6ced60c"
+      }
     }
   }
 }

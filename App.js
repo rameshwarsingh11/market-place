@@ -5,14 +5,18 @@ import Screen from "./app/components/Screen";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
-const Tweets = () => {
+const Tweets = ({ navigation }) => {
   <Screen>
-    <Text> Tweets</Text>
+    <Text>Tweets</Text>
   </Screen>;
 };
 const TweetDetails = () => {
   <Screen>
     <Text>TweetDetails</Text>
+    <Button
+      title="View Tweet"
+      onPress={() => navigation.navigate("TweetDetails")}
+    ></Button>
   </Screen>;
 };
 

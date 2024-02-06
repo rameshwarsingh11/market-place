@@ -18,25 +18,27 @@ const Link = () => {
   );
 };
 
-const Tweets = () => {
+const Tweets = ({ navigation }) => {
   <Screen>
     <Text>Tweets</Text>
-    <Link />
+    <Button title="View Tweet"
+      onPress={() => navigation.navigate('Tweet Details')
+
+      } />
   </Screen>;
 };
 const TweetDetails = () => {
   <Screen>
     <Text>TweetDetails</Text>
-    <Link />
   </Screen>;
 };
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
-  <Stack.Navigator>
+  <Stack.Navigator initialRouteName="Tweets">
     <Stack.Screen name="Tweets" component={Tweets} />
     <Stack.Screen name="TweetDetails" component={TweetDetails} />
-  </Stack.Navigator>;
+  </Stack.Navigator>
 };
 export default function App() {
   return (

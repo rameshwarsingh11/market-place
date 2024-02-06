@@ -7,7 +7,7 @@ function WelcomeScreen(props) {
     <ImageBackground
       blurRadius={10}
       style={styles.background}
-      source={require("../assets/icon.png")}
+      source={require("../assets/poster.png")}
     >
       <View style={styles.logoContainer}>
         <Text style={styles.headline}>Market Place options</Text>

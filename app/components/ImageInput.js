@@ -10,45 +10,47 @@ function ImageInput({ key, imageUri, onChangeImage }) {
     requestPermission();
   });
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-    if (!granted) {
-      alert("Please enable permission to access your media library");
-    }
+  const requestPermission = () => {
+    (async () => {
+
+      const { granted } = await ImagePicker.requestCameraPermissionsAsync();
+      if (!granted) {
+        alert("Please enable permission to access your media library");
+      }
+    })().catch(e => { console.error(e) })
   };
   const handlePress = () => {
     if (!imageUri) {
       selectImage();
     }
   };
+};
 
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 0.7,
-      });
-      if (!result.canceled) {
-        onChangeImage(result.imageUri);
-      } else {
-        Alert.alert(
-          "Delete",
-          "Do you want to delete this image",
-          {
-            text: "Yes",
-            onPress: () => {
-              onChangeImage(null);
-            },
+const selectImage = () => {
+  (async () => {
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 0.7,
+    });
+    if (!result.canceled) {
+      onChangeImage(result.imageUri);
+    } else {
+      Alert.alert(
+        "Delete",
+        "Do you want to delete this image",
+        {
+          text: "Yes",
+          onPress: () => {
+            onChangeImage(null);
           },
-          {
-            text: "No",
-          }
-        );
-      }
-    } catch (error) {
-      console.log("There was an error reading the Image", error);
+        },
+        {
+          text: "No",
+        }
+      );
     }
-  };
+  })().catch(e => { console.error(e) });
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>

@@ -6,4 +6,4 @@ using in-built database for device storage.
 npx expo install
 
 # Run the app
-npx expo start
+npx expo start --tunnel

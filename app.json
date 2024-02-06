@@ -6,7 +6,7 @@
     "description": "A Market place to allow B2C operations.",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./app/assets/icon.png",
+    "icon": "./app/assets/poster.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./app/assets/splash.png",
@@ -29,7 +29,7 @@
       },
       "bundleIdentifier": "com.rsingh11.marketplace"
     },
-    "android": {},
+    "android": { "icon": "./app/assets/poster.png"},
     "web": {
       "favicon": "./assets/favicon.png"
     },

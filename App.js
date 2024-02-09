@@ -1,12 +1,11 @@
 import "react-native-gesture-handler";
 import React from "react";
-
-import { Button, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import Screen from "./app/components/Screen";
 import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import WelcomeScreen from "./app/screens/WelcomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { useNavigation } from "expo-router";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Link = () => {
   const navigation = useNavigation();
@@ -24,12 +23,12 @@ const Tweets = ({ }) => {
   <Screen>
     <Text>Tweets</Text>
     <Link />
-  </Screen>;
+  </Screen>
 };
 const TweetDetails = ({ route }) => {
   <Screen>
     <Text>Tweet Details{route.params.id}</Text>
-  </Screen>;
+  </Screen>
 };
 
 const Stack = createStackNavigator();
@@ -48,7 +47,9 @@ const Account = () => <Screen><Text>Account</Text></Screen>
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
-  <Tab.Navigator>
+  <Tab.Navigator tabBar={{
+    backgroundColor: 'red'
+  }}>
     <Tab.Screen name='Feed' component={Tweets} />
     <Tab.Screen name='Account' component={Account} />
   </Tab.Navigator>

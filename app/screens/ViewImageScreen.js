@@ -23,7 +23,7 @@ function ViewImageScreen(props) {
       <Image
         resizeMode="contain"
         style={styles.Image}
-        source={require("../assets/favicon.png")}
+        source={require("../assets/poster.png")}
       />
     </View>
   );

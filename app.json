@@ -31,7 +31,7 @@
     },
     "android": { "icon": "./app/assets/poster.png"},
     "web": {
-      "favicon": "./assets/favicon.png"
+      "poster": "./assets/poster.png"
     },
     "extra": {
       "eas": {

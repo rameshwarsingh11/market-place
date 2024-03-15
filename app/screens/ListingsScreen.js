@@ -1,24 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Screen from "../components/Screen";
 import { FlatList, StyleSheet } from "react-native";
 import Card from "../components/Card";
 import colors from "../config/colors";
+import listingsApi from '../api/listings'
 
-const listings = [
-  {
-    id: 1,
-    title: "Rubik cube for sale",
-    price: 88,
-    image: require("../assets/rubik.png"),
-  },
-  {
-    id: 1,
-    title: "AI 3D poster for sale",
-    price: 160,
-    image: require("../assets/poster.png"),
-  },
-];
 function ListingsScreen(props) {
+  const [listings, setListings] = useState([]);
+  useEffect(() => {
+    loadListings
+
+  }, [])
+
+  const loadListings = async () => {
+    const response = await listingsApi.getListings()
+    setListings(response.data)
+  }
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -28,7 +25,7 @@ function ListingsScreen(props) {
           <Card
             title={item.title}
             subTitle={"$" + item.price}
-            image={item.image}
+            imageUrl={item.images[0].url}
           />
         )}
       ></FlatList>

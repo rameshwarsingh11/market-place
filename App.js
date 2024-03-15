@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "expo-router";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ListingsScreen from "./app/screens/ListingsScreen";
 
 const Link = () => {
   const navigation = useNavigation();
@@ -57,8 +58,9 @@ const TabNavigator = () => {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <TabNavigator />
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <TabNavigator />
+    // </NavigationContainer>
+    <ListingsScreen />
   );
 }

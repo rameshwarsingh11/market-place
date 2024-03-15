@@ -5,12 +5,12 @@ import Card from "../components/Card";
 import colors from "../config/colors";
 import listingsApi from '../api/listings'
 
-function ListingsScreen(props) {
+function ListingsScreen({ navigation }) {
   const [listings, setListings] = useState([]);
   useEffect(() => {
-    loadListings
+    loadListings();
 
-  }, [])
+  }, []);
 
   const loadListings = async () => {
     const response = await listingsApi.getListings()

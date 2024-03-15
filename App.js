@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "expo-router";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ListingsScreen from "./app/screens/ListingsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 const Link = () => {
   const navigation = useNavigation();

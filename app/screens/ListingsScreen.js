@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Screen from "../components/Screen";
-import { FlatList, StyleSheet } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet } from "react-native";
 import Card from "../components/Card";
 import colors from "../config/colors";
 import listingsApi from '../api/listings'
@@ -9,8 +9,8 @@ import AppButton from '../components/AppButton'
 
 function ListingsScreen({ navigation }) {
   const [listings, setListings] = useState([]);
-
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -18,18 +18,23 @@ function ListingsScreen({ navigation }) {
   }, []);
 
   const loadListings = async () => {
+    setLoading(true);
     const response = await listingsApi.getListings()
+    setLoading(false);
+
     if (!response.ok) {
       setError(true);
+      console.log(response.problem);
       return;
     }
     else {
-      setError(false)
+      setError(false);
     }
-    setListings(response.data)
+    setListings(response.data);
   }
   return (
     <Screen style={styles.screen}>
+      <ActivityIndicator animating={loading} size='large'></ActivityIndicator>
       {error && <>
         <AppText>Sorry, not able to fetch the listings from backend API.</AppText>
         <AppButton title='Retry' onPress={loadListings} />

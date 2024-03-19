@@ -38,7 +38,8 @@
     "react-native-web": "~0.19.6",
     "react-navigation": "^5.0.0",
     "string-width": "^7.1.0",
-    "yup": "^1.2.0"
+    "yup": "^1.2.0",
+    "lottie-react-native": "6.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

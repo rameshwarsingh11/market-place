@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Screen from "../components/Screen";
-import { ActivityIndicator, FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
+import ActivityIndicator from "../components/ActivityIndicator";
 import Card from "../components/Card";
 import colors from "../config/colors";
 import listingsApi from "../api/listings";
@@ -32,7 +33,7 @@ function ListingsScreen({ navigation }) {
   };
   return (
     <Screen style={styles.screen}>
-      <ActivityIndicator animating={loading} size="large"></ActivityIndicator>
+      <ActivityIndicator visible={true}></ActivityIndicator>
       {error && (
         <>
           <AppText>

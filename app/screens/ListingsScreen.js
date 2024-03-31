@@ -7,43 +7,27 @@ import colors from "../config/colors";
 import listingsApi from "../api/listings";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
+import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-
+  const getListingsApi = useApi(listingsApi.getListings);
   useEffect(() => {
-    loadListings();
+    getListingsApi.request(1);
   }, []);
 
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) {
-      setError(true);
-      console.log(response.problem);
-      return;
-    } else {
-      setError(false);
-    }
-    setListings(response.data);
-  };
   return (
     <Screen style={styles.screen}>
-      <ActivityIndicator visible={true}></ActivityIndicator>
-      {error && (
+      <ActivityIndicator visible={getListingsApi.loading}></ActivityIndicator>
+      {getListingsApi.error && (
         <>
           <AppText>
             Sorry, not able to fetch the listings from backend API.
           </AppText>
-          <AppButton title="Retry" onPress={loadListings} />
+          <AppButton title="Retry" onPress={getListingsApi.loadListings} />
         </>
       )}
       <FlatList
-        data={listings}
+        data={getListingsApi.data}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <Card

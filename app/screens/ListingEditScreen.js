@@ -11,13 +11,14 @@ import Screen from "../components/Screen";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import useLocation from "../hooks/useLocation";
+import ListingsApi from "../api/listings";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(1000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().min(1, "Please select atleast on image"),
+  images: Yup.array().min(1, "Please select atleast one image"),
 });
 const categories = [
   { label: "3D-Poster", value: 1, backgroundColor: "red", icon: "artstation" },
@@ -32,6 +33,14 @@ const categories = [
 
 function ListingEditScreen() {
   const location = useLocation();
+
+  const handleSubmit = async (listing) => {
+    const result = await ListingsApi.addListing({ ...listing, location });
+    if (!result.ok) {
+      return alert("Sorry, the listing could not be uploaded due to an error");
+    }
+    alert("Congratulations! Your listing uploaded successfully!");
+  };
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -40,9 +49,9 @@ function ListingEditScreen() {
           price: "",
           description: "",
           category: null,
-          images: [],
+          ima ges: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />

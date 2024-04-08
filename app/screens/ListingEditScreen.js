@@ -49,7 +49,7 @@ function ListingEditScreen() {
           price: "",
           description: "",
           category: null,
-          ima ges: [],
+          images: [],
         }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
